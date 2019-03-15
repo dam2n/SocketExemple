@@ -22,13 +22,17 @@ namespace SocketExempleClient
 
             public int Port { get; }
 
-            public Client() => (ServerAddress, Port) = ("localhost", 23000);
 
+            public Client()
+            {
+                ServerAddress = "localhost";
+                Port = 23000;
+            }
 
             public void Run()
             {
 
-                    TcpClient client = new TcpClient(ServerAddress, Port);
+                var client = new TcpClient(ServerAddress, Port);
                 try { 
                     using (NetworkStream channel = client.GetStream())
                     {
